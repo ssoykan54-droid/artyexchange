@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced mobile touch interactions */
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth !important;
+    overflow-x: hidden;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* Prevent horizontal scroll on all elements */
+  * {
+    max-width: 100%;
+  }
+
+  /* Universal smooth scrolling for all clickable elements */
+  a, button, [role="button"] {
+    scroll-behavior: smooth;
+  }
+
+  /* Section anchor targets with proper offset for fixed header */
+  section[id], div[id], h1[id], h2[id], h3[id] {
+    scroll-margin-top: 6rem; /* Account for fixed header height */
+  }
+
+  /* Enhanced scroll margin for mobile */
+  @media (max-width: 768px) {
+    section[id], div[id], h1[id], h2[id], h3[id] {
+      scroll-margin-top: 5rem;
+    }
+  }
+
+  /* Ensure all pages have consistent background */
+  .page-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #111827 0%, #374151 50%, #4b5563 100%);
+  }
+
+  /* Enhanced modal scrolling */
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth scrolling for all interactive elements */
+  .smooth-scroll-enhanced {
+    scroll-behavior: smooth;
+    transition: all 0.3s ease;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Touch-friendly interactive elements */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Enhanced focus states for accessibility */
+  .focus-visible:focus {
+    outline: 2px solid #374151;
+    outline-offset: 2px;
+  }
+
+  /* Mobile optimization utilities */
+  .mobile-safe {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .mobile-container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+
+  /* Smooth scroll enhancement */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* Navigation height enhancement for mobile */
+  .mobile-nav-enhanced {
+    height: 120%; /* 20% increase */
+  }
+}
